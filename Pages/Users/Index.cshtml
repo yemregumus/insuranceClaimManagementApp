@@ -1,0 +1,28 @@
+﻿@page
+@model InsuranceClaimManagement.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Users List";
+}
+
+<h1>Users List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Username</td>
+            
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/Users/Create" class="btn btn-primary">Add New User</a>
