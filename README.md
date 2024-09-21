@@ -24,32 +24,6 @@ It aims to enhance the overall efficiency of insurance claim processing.
 - **Dashboard**: 
   - View lists of users and claims in a comprehensive dashboard.
 
-  ## Screenshots
-
-## Screenshots
-
-### Claims Page
-![Claims Page](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/ClaimsPage.jpg)
-
-### Dashboard
-![Dashboard](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/Dashboard.jpg)
-
-### Delete Claim
-![Delete Claim](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/DeleteClaim.jpg)
-
-### Delete User
-![Delete User](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/DeleteUser.jpg)
-
-### Edit Claim
-![Edit Claim](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/EditClaim.jpg)
-
-### Edit User
-![Edit User](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/EditUser.jpg)
-
-### Users Page
-![Users Page](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/UsersPage.jpg)
-
-
 ## Tech Stack
 - **Frontend**: 
   - ASP.NET Core Razor Pages for building dynamic web pages.
@@ -88,6 +62,28 @@ It aims to enhance the overall efficiency of insurance claim processing.
    ```bash
    dotnet run
    ```
+## Screenshots
+
+### Claims Page
+![Claims Page](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/ClaimsPage.jpg)
+
+### Dashboard
+![Dashboard](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/Dashboard.jpg)
+
+### Delete Claim
+![Delete Claim](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/DeleteClaim.jpg)
+
+### Delete User
+![Delete User](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/DeleteUser.jpg)
+
+### Edit Claim
+![Edit Claim](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/EditClaim.jpg)
+
+### Edit User
+![Edit User](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/EditUser.jpg)
+
+### Users Page
+![Users Page](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/UsersPage.jpg)
 
 ## Usage
 - Access the application through your web browser at `http://localhost:5000`.
