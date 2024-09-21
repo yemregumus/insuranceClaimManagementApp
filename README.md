@@ -26,26 +26,29 @@ It aims to enhance the overall efficiency of insurance claim processing.
 
   ## Screenshots
 
+## Screenshots
+
 ### Claims Page
-![Claims Page](screenshots/ClaimsPage.jpg)
+![Claims Page](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/ClaimsPage.jpg)
 
 ### Dashboard
-![Dashboard](screenshots/Dashboard.jpg)
+![Dashboard](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/Dashboard.jpg)
 
 ### Delete Claim
-![Delete Claim](screenshots/DeleteClaim.jpg)
+![Delete Claim](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/DeleteClaim.jpg)
 
 ### Delete User
-![Delete User](screenshots/DeleteUser.jpg)
+![Delete User](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/DeleteUser.jpg)
 
 ### Edit Claim
-![Edit Claim](screenshots/EditClaim.jpg)
+![Edit Claim](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/EditClaim.jpg)
 
 ### Edit User
-![Edit User](screenshots/EditUser.jpg)
+![Edit User](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/EditUser.jpg)
 
 ### Users Page
-![Users Page](screenshots/UsersPage.jpg)
+![Users Page](https://github.com/yemregumus/insuranceClaimManagementApp/raw/main/screenshots/UsersPage.jpg)
+
 
 ## Tech Stack
 - **Frontend**: 
