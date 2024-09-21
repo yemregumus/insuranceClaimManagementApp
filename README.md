@@ -1,13 +1,17 @@
-Here’s the complete README content in Markdown format, including usage, contributing, and license sections:
+Hereâ€™s the complete README content in Markdown format, including usage, contributing, and license sections:
 
 ```markdown
 # Insurance Claim Management Application
 
 ## Overview
-The Insurance Claim Management application is a web-based solution designed to streamline the process of managing insurance claims and user data. It allows users to submit, update, and view their claims while also managing user information efficiently.
+The Insurance Claim Management application is a web-based solution
+designed to streamline the process of managing insurance claims and user data.
+It allows users to submit, update, and view their claims while also managing user information efficiently.
 
 ## Purpose
-The purpose of this application is to provide a user-friendly interface for managing insurance claims, making it easier for users and administrators to track and update claim statuses. It aims to enhance the overall efficiency of insurance claim processing.
+The purpose of this application is to provide a user-friendly interface for managing insurance claims,
+making it easier for users and administrators to track and update claim statuses.
+It aims to enhance the overall efficiency of insurance claim processing.
 
 ## Features
 - **User Management**: 
