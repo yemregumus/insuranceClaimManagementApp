@@ -1,5 +1,3 @@
-Here’s the complete README content in Markdown format, including usage, contributing, and license sections:
-
 ```markdown
 # Insurance Claim Management Application
 
@@ -25,6 +23,29 @@ It aims to enhance the overall efficiency of insurance claim processing.
 
 - **Dashboard**: 
   - View lists of users and claims in a comprehensive dashboard.
+
+  ## Screenshots
+
+### Claims Page
+![Claims Page](screenshots/ClaimsPage.jpg)
+
+### Dashboard
+![Dashboard](screenshots/Dashboard.jpg)
+
+### Delete Claim
+![Delete Claim](screenshots/DeleteClaim.jpg)
+
+### Delete User
+![Delete User](screenshots/DeleteUser.jpg)
+
+### Edit Claim
+![Edit Claim](screenshots/EditClaim.jpg)
+
+### Edit User
+![Edit User](screenshots/EditUser.jpg)
+
+### Users Page
+![Users Page](screenshots/UsersPage.jpg)
 
 ## Tech Stack
 - **Frontend**: 
