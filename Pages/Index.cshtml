@@ -1,10 +1,67 @@
 ﻿@page
-@model IndexModel
+@model InsuranceClaimManagement.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1>Welcome to the Insurance Claim Management System</h1>
-    <p>This is a simple application for managing insurance claims.</p>
+<h1 style="text-align: center;">Insurance Claim Management App Dashboard</h1>
+<br />
+<br />
+<br />
+<br />
+<div>
+    <h2>Users List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+        
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Username</td>
+                    <td>@user.Email</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<br />
+<br />
+<div>
+    <h2>Claims List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Claim Type</th>
+                <th>Description</th>
+                <th>Status</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model.Claims)
+            {
+                <tr>
+                    <td>@claim.Id</td>
+                    <td>@claim.ClaimType</td>
+                    <td>@claim.Description</td>
+                    <td>@claim.Status</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

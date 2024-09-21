@@ -11,16 +11,24 @@
         <tr>
             <th>User ID</th>
             <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model.Users)
         {
-        <tr>
-            <td>@user.Id</td>
-            <td>@user.Username</td>
-            
-        </tr>
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@user.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Delete" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

@@ -1,33 +1,37 @@
 ﻿@page
 @model InsuranceClaimManagement.Pages.Claims.IndexModel
 @{
-    ViewData["Title"] = "Claims List";
+    ViewData["Title"] = "Claims";
 }
 
-<h1>Claims List</h1>
+<h1>Claims</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Claim ID</th>
-            <th>Policy Number</th>
-            <th>Claim Date</th>
+            <th>Claim Type</th>
+            <th>Description</th>
+            <th>Amount</th>
             <th>Status</th>
+            <th>User ID</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var claim in Model.Claims)
         {
         <tr>
-            <td>@claim.Id</td>
-            <td>@claim.PolicyNumber</td>
-            <td>@claim.ClaimDate</td>
+            <td>@claim.ClaimType</td>
+            <td>@claim.Description</td>
+            <td>@claim.Amount.ToString("F1")</td>
             <td>@claim.Status</td>
-
-
+            <td>@claim.UserId</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@claim.Id" class="btn btn-warning">Edit</a>
+                <a asp-page="Delete" asp-route-id="@claim.Id" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         }
     </tbody>
 </table>
-
 <a asp-page="/Claims/Create" class="btn btn-primary">Add New Claim</a>

@@ -1,0 +1,55 @@
+﻿@page "{id:int}"
+@model InsuranceClaimManagement.Pages.Claims.EditModel
+@{
+    ViewData["Title"] = "Edit Claim";
+}
+
+<h1>Edit Claim</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Claim.Id" />
+
+    <div class="form-group">
+        <label asp-for="Claim.ClaimType"></label>
+        <input asp-for="Claim.ClaimType" class="form-control" />
+        <span asp-validation-for="Claim.ClaimType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Claim.Description"></label>
+        <textarea asp-for="Claim.Description" class="form-control"></textarea>
+        <span asp-validation-for="Claim.Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Claim.PolicyNumber"></label>
+        <input asp-for="Claim.PolicyNumber" class="form-control" />
+        <span asp-validation-for="Claim.PolicyNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Claim.ClaimDate"></label>
+        <input asp-for="Claim.ClaimDate" class="form-control" type="date" />
+        <span asp-validation-for="Claim.ClaimDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Claim.Amount"></label>
+        <input asp-for="Claim.Amount" class="form-control" />
+        <span asp-validation-for="Claim.Amount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Claim.Status"></label>
+        <input asp-for="Claim.Status" class="form-control" />
+        <span asp-validation-for="Claim.Status" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Claim.UserId"></label>
+        <input asp-for="Claim.UserId" class="form-control" />
+        <span asp-validation-for="Claim.UserId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

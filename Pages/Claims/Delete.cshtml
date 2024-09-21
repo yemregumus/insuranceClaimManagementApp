@@ -1,0 +1,41 @@
+﻿@page "{id:int}"
+@model InsuranceClaimManagement.Pages.Claims.DeleteModel
+@{
+    ViewData["Title"] = "Delete Claim";
+}
+
+<h1>Delete Claim</h1>
+
+<h3>Are you sure you want to delete this claim?</h3>
+<div>
+    <h4>Claim</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Claim Type</dt>
+        <dd class="col-sm-10">@Model.Claim.ClaimType</dd>
+
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Claim.Description</dd>
+
+        <dt class="col-sm-2">Policy Number</dt>
+        <dd class="col-sm-10">@Model.Claim.PolicyNumber</dd>
+
+        <dt class="col-sm-2">Claim Date</dt>
+        <dd class="col-sm-10">@Model.Claim.ClaimDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-2">Amount</dt>
+        <dd class="col-sm-10">@Model.Claim.Amount</dd>
+
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@Model.Claim.Status</dd>
+
+        <dt class="col-sm-2">User ID</dt>
+        <dd class="col-sm-10">@Model.Claim.UserId</dd>
+    </dl>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Claim.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
