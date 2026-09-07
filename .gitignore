@@ -28,3 +28,6 @@ mysqldump.exe
 
 # Environment files
 .env
+
+# Local AI/editor configuration
+.continue/
