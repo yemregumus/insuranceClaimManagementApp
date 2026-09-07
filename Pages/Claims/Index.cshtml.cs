@@ -1,8 +1,10 @@
 using InsuranceClaimManagement.Data;
 using InsuranceClaimManagement.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace InsuranceClaimManagement.Pages.Claims
 {
@@ -18,10 +20,14 @@ namespace InsuranceClaimManagement.Pages.Claims
             _context = context;
         }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            // Fetch the claims from the database and assign them to the Claims property
-            Claims = _context.Claims.ToList();
+            Claims = await _context.Claims
+                .AsNoTracking()
+                .Include(claim => claim.User)
+                .OrderByDescending(claim => claim.ClaimDate)
+                .ThenByDescending(claim => claim.Id)
+                .ToListAsync();
         }
     }
 }

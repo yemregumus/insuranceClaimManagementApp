@@ -16,13 +16,15 @@ namespace InsuranceClaimManagement.Pages
             _context = context;
         }
 
-        public IList<User> Users { get; set; }
-        public IList<Claim> Claims { get; set; }
+        public int CustomerCount { get; set; }
+        public int ClaimCount { get; set; }
+        public int PendingClaimCount { get; set; }
 
         public async Task OnGetAsync()
         {
-            Users = await _context.Users.ToListAsync();
-            Claims = await _context.Claims.ToListAsync();
+            CustomerCount = await _context.Customers.CountAsync();
+            ClaimCount = await _context.Claims.CountAsync();
+            PendingClaimCount = await _context.Claims.CountAsync(claim => claim.Status == "Pending");
         }
     }
 }

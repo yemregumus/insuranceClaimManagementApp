@@ -1,0 +1,70 @@
+@page "{id}"
+@model InsuranceClaimManagement.Pages.Staff.EditModel
+@{
+    ViewData["Title"] = "Edit staff account";
+}
+
+<h1>Edit staff account</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input value="@Model.Email" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.DisplayName"></label>
+        <input asp-for="Input.DisplayName" class="form-control" />
+        <span asp-validation-for="Input.DisplayName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.Role"></label>
+        <select asp-for="Input.Role" asp-items="Model.RoleOptions" class="form-control">
+            <option value="">Select a role</option>
+        </select>
+        <span asp-validation-for="Input.Role" class="text-danger"></span>
+    </div>
+
+    <div class="form-group form-check">
+        <input asp-for="Input.IsActive" class="form-check-input" />
+        <label asp-for="Input.IsActive" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+<hr />
+<h2>Password setup or recovery</h2>
+<p>Create a short-lived link that lets this staff member choose a new password.</p>
+<form method="post" asp-page-handler="PasswordSetup">
+    <button type="submit" class="btn btn-outline-primary">Create password setup link</button>
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.PasswordSetupUrl))
+{
+    <div class="alert alert-warning mt-3">
+        This link grants access to the account, expires in two hours, and should be shared privately.
+        It is shown only on this page.
+    </div>
+    <div class="form-group">
+        <label for="passwordSetupUrl">One-time password setup link</label>
+        <textarea id="passwordSetupUrl" class="form-control" rows="4" readonly
+                  onfocus="this.select()">@Model.PasswordSetupUrl</textarea>
+    </div>
+}
+
+<hr />
+<h2>Two-factor recovery</h2>
+<p>Reset two-factor authentication only after verifying the staff member's identity.</p>
+<form method="post" asp-page-handler="ResetTwoFactor"
+      onsubmit="return confirm('Reset two-factor authentication for this account?');">
+    <button type="submit" class="btn btn-outline-danger">Reset two-factor authentication</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

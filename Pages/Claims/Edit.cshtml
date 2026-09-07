@@ -7,49 +7,86 @@
 <h1>Edit Claim</h1>
 
 <form method="post">
-    <input type="hidden" asp-for="Claim.Id" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input asp-for="Input.ConcurrencyToken" type="hidden" />
 
     <div class="form-group">
-        <label asp-for="Claim.ClaimType"></label>
-        <input asp-for="Claim.ClaimType" class="form-control" />
-        <span asp-validation-for="Claim.ClaimType" class="text-danger"></span>
+        <label asp-for="Input.ClaimType"></label>
+        <input asp-for="Input.ClaimType" class="form-control" />
+        <span asp-validation-for="Input.ClaimType" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Claim.Description"></label>
-        <textarea asp-for="Claim.Description" class="form-control"></textarea>
-        <span asp-validation-for="Claim.Description" class="text-danger"></span>
+        <label asp-for="Input.Description"></label>
+        <textarea asp-for="Input.Description" class="form-control"></textarea>
+        <span asp-validation-for="Input.Description" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Claim.PolicyNumber"></label>
-        <input asp-for="Claim.PolicyNumber" class="form-control" />
-        <span asp-validation-for="Claim.PolicyNumber" class="text-danger"></span>
+        <label asp-for="Input.PolicyNumber"></label>
+        <input asp-for="Input.PolicyNumber" class="form-control" />
+        <span asp-validation-for="Input.PolicyNumber" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Claim.ClaimDate"></label>
-        <input asp-for="Claim.ClaimDate" class="form-control" type="date" />
-        <span asp-validation-for="Claim.ClaimDate" class="text-danger"></span>
+        <label asp-for="Input.ClaimDate"></label>
+        <input asp-for="Input.ClaimDate" class="form-control" />
+        <span asp-validation-for="Input.ClaimDate" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Claim.Amount"></label>
-        <input asp-for="Claim.Amount" class="form-control" />
-        <span asp-validation-for="Claim.Amount" class="text-danger"></span>
+        <label asp-for="Input.Amount"></label>
+        <input asp-for="Input.Amount" class="form-control" step="0.01" />
+        <span asp-validation-for="Input.Amount" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Claim.Status"></label>
-        <input asp-for="Claim.Status" class="form-control" />
-        <span asp-validation-for="Claim.Status" class="text-danger"></span>
+        <label asp-for="Input.Status"></label>
+        <select asp-for="Input.Status" asp-items="Model.StatusOptions" class="form-control"></select>
+        <span asp-validation-for="Input.Status" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Claim.UserId"></label>
-        <input asp-for="Claim.UserId" class="form-control" />
-        <span asp-validation-for="Claim.UserId" class="text-danger"></span>
+        <label asp-for="Input.UserId"></label>
+        <select asp-for="Input.UserId" asp-items="Model.CustomerOptions" class="form-control">
+            <option value="0">Select a customer</option>
+        </select>
+        <span asp-validation-for="Input.UserId" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+
+<h2 class="mt-4">Status history</h2>
+@if (Model.StatusHistory.Count == 0)
+{
+    <p>No status changes have been recorded yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>When (UTC)</th>
+                <th>Previous</th>
+                <th>New</th>
+                <th>Changed by</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var history in Model.StatusHistory)
+            {
+                <tr>
+                    <td>@history.ChangedUtc.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@(history.PreviousStatus ?? "Created")</td>
+                    <td>@history.NewStatus</td>
+                    <td>@history.ChangedByUser.DisplayName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

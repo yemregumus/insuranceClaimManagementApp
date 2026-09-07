@@ -1,0 +1,46 @@
+@page
+@model InsuranceClaimManagement.Pages.Staff.IndexModel
+@{
+    ViewData["Title"] = "Staff accounts";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Staff accounts</h1>
+    <a asp-page="Create" class="btn btn-primary">Add staff account</a>
+</div>
+
+@if (TempData["StatusMessage"] is string statusMessage)
+{
+    <div class="alert alert-success">@statusMessage</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var staff in Model.StaffMembers)
+        {
+            <tr>
+                <td>@staff.DisplayName</td>
+                <td>@staff.Email</td>
+                <td>@staff.Roles</td>
+                <td>@(staff.IsActive ? "Active" : "Inactive")</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@staff.Id" class="btn btn-sm btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.StaffMembers.Count == 0)
+{
+    <p>No staff accounts were found for this organization.</p>
+}

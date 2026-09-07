@@ -13,8 +13,11 @@
             <th>Description</th>
             <th>Amount</th>
             <th>Status</th>
-            <th>User ID</th>
-            <th>Actions</th>
+            <th>Customer</th>
+            @if (User.IsInRole(RoleNames.Administrator) || User.IsInRole(RoleNames.ClaimsAdjuster))
+            {
+                <th>Actions</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -25,13 +28,19 @@
             <td>@claim.Description</td>
             <td>@claim.Amount.ToString("F1")</td>
             <td>@claim.Status</td>
-            <td>@claim.UserId</td>
-            <td>
-                <a asp-page="Edit" asp-route-id="@claim.Id" class="btn btn-warning">Edit</a>
-                <a asp-page="Delete" asp-route-id="@claim.Id" class="btn btn-danger">Delete</a>
-            </td>
+                <td>@(claim.User?.Name ?? $"Customer #{claim.UserId}")</td>
+            @if (User.IsInRole(RoleNames.Administrator) || User.IsInRole(RoleNames.ClaimsAdjuster))
+            {
+                <td>
+                    <a asp-page="Edit" asp-route-id="@claim.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Delete" asp-route-id="@claim.Id" class="btn btn-danger">Archive</a>
+                </td>
+            }
         </tr>
         }
     </tbody>
 </table>
-<a asp-page="/Claims/Create" class="btn btn-primary">Add New Claim</a>
+@if (User.IsInRole(RoleNames.Administrator) || User.IsInRole(RoleNames.ClaimsAdjuster))
+{
+    <a asp-page="/Claims/Create" class="btn btn-primary">Add New Claim</a>
+}

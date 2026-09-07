@@ -19,9 +19,34 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-page="/Claims/Index">Claims</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Users/Index">Users</a>
-                    </li>
+                    @if (User.IsInRole(RoleNames.Administrator))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Users/Index">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Staff/Index">Staff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Audit/Index">Audit</a>
+                        </li>
+                    }
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <li class="nav-item">
+                            <span class="nav-link">@User.Identity.Name</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Account/TwoFactor">Security</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" asp-page="/Account/Logout">
+                                <button type="submit" class="btn btn-link nav-link">Sign out</button>
+                            </form>
+                        </li>
+                    }
                 </ul>
             </div>
         </nav>

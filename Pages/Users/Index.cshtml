@@ -1,17 +1,17 @@
 ﻿@page
 @model InsuranceClaimManagement.Pages.Users.IndexModel
 @{
-    ViewData["Title"] = "Users List";
+    ViewData["Title"] = "Customers";
 }
 
-<h1>Users List</h1>
+<h1>Customers</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>User ID</th>
+            <th>Customer ID</th>
             <th>Name</th>
-            <th>Username</th>
+            <th>Customer reference</th>
             <th>Email</th>
             <th>Actions</th>
         </tr>
@@ -33,4 +33,4 @@
     </tbody>
 </table>
 
-<a asp-page="/Users/Create" class="btn btn-primary">Add New User</a>
+<a asp-page="/Users/Create" class="btn btn-primary">Add customer</a>

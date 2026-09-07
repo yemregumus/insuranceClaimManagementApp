@@ -7,35 +7,55 @@
 <h1>Create New Claim</h1>
 
 <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
     <div class="form-group">
-        <label for="ClaimType">Claim Type</label>
-        <input type="text" class="form-control" id="ClaimType" name="claimType" required>
+        <label asp-for="Input.ClaimType"></label>
+        <input asp-for="Input.ClaimType" class="form-control" />
+        <span asp-validation-for="Input.ClaimType" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label for="Description">Description</label>
-        <textarea class="form-control" id="Description" name="description" required></textarea>
+        <label asp-for="Input.Description"></label>
+        <textarea asp-for="Input.Description" class="form-control"></textarea>
+        <span asp-validation-for="Input.Description" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label for="PolicyNumber">Policy Number</label>
-        <input type="text" class="form-control" id="PolicyNumber" name="policyNumber" required>
+        <label asp-for="Input.PolicyNumber"></label>
+        <input asp-for="Input.PolicyNumber" class="form-control" />
+        <span asp-validation-for="Input.PolicyNumber" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label for="ClaimDate">Claim Date</label>
-        <input type="date" class="form-control" id="ClaimDate" name="claimDate" required>
+        <label asp-for="Input.ClaimDate"></label>
+        <input asp-for="Input.ClaimDate" class="form-control" />
+        <span asp-validation-for="Input.ClaimDate" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label for="Status">Status</label>
-        <input type="text" class="form-control" id="Status" name="status" required>
+        <label asp-for="Input.Amount"></label>
+        <input asp-for="Input.Amount" class="form-control" step="0.01" />
+        <span asp-validation-for="Input.Amount" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label for="UserId">User ID</label>
-        <input type="number" class="form-control" id="UserId" name="userId" required>
+        <label asp-for="Input.Status"></label>
+        <select asp-for="Input.Status" asp-items="Model.StatusOptions" class="form-control"></select>
+        <span asp-validation-for="Input.Status" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <label asp-for="Input.UserId"></label>
+        <select asp-for="Input.UserId" asp-items="Model.CustomerOptions" class="form-control">
+            <option value="0">Select a customer</option>
+        </select>
+        <span asp-validation-for="Input.UserId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

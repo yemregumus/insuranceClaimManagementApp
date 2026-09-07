@@ -4,64 +4,31 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<h1 style="text-align: center;">Insurance Claim Management App Dashboard</h1>
-<br />
-<br />
-<br />
-<br />
-<div>
-    <h2>Users List</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>User ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Email</th>
-        
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in Model.Users)
-            {
-                <tr>
-                    <td>@user.Id</td>
-                    <td>@user.Name</td>
-                    <td>@user.Username</td>
-                    <td>@user.Email</td>
+<h1 class="text-center mb-4">Insurance Claim Management Dashboard</h1>
 
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<br />
-<br />
-<br />
-<br />
-<div>
-    <h2>Claims List</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Claim ID</th>
-                <th>Claim Type</th>
-                <th>Description</th>
-                <th>Status</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var claim in Model.Claims)
-            {
-                <tr>
-                    <td>@claim.Id</td>
-                    <td>@claim.ClaimType</td>
-                    <td>@claim.Description</td>
-                    <td>@claim.Status</td>
-
-                </tr>
-            }
-        </tbody>
-    </table>
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5 card-title">Customers</h2>
+                <p class="display-4">@Model.CustomerCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5 card-title">All claims</h2>
+                <p class="display-4">@Model.ClaimCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5 card-title">Pending claims</h2>
+                <p class="display-4">@Model.PendingClaimCount</p>
+            </div>
+        </div>
+    </div>
 </div>

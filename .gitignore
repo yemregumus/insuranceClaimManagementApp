@@ -22,5 +22,9 @@ packages/
 # User secrets
 secrets.json
 
+# Local database exports and bundled database tools
+backup*.sql
+mysqldump.exe
+
 # Environment files
 .env
